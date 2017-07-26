@@ -23,11 +23,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.provision :shell, :path => "bootstrap.sh"
-  config.vm.network "forwarded_port", guest: 8080, host: 9000
-  config.vm.network "forwarded_port", guest: 9200, host: 9001
-  config.vm.network "forwarded_port", guest: 49001, host: 8081
-
-
+  config.vm.network "forwarded_port", guest: 8080, host: 8000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -71,17 +67,13 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-     sudo apt-get update -y
-     sudo apt-get install -y build-essential checkinstall
-     sudo apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
-     cd /usr/src && sudo wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz && sudo tar xzf Python-3.6.0.tgz && sudo chown -R vagrant:vagrant Python-3.6.0 && cd Python-3.6.0 && sudo ./configure && sudo make altinstall
-     sudo apt-get install -y unixodbc unixodbc-dev freetds-dev freetds-bin tdsodbc
-     sudo pip3.6 install -r /vagrant/requirements.txt
-     sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-     sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-trusty main'
-     sudo apt-get update -y
-     apt-cache policy docker-engine
-     sudo apt-get install -y docker-engine
-     sudo usermod -aG docker $(whoami)
+    sudo add-apt-repository ppa:webupd8team/java -y
+    sudo apt update -y; sudo apt install oracle-java8-installer -y
+    sudo apt-get update -y
+    sudo apt-get install ant -y
+    wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+    sudo apt-get update -y
+    sudo apt-get install jenkins -y
   SHELL
 end
