@@ -1,13 +1,29 @@
-<project name="learnant" default="echohelloworld" basedir=".">
-    <target name="echohelloworld">
-        <echo>Hello World!!!</echo>
-    </target>
-    <target name="cmdhelloworld">
-        <exec executable="bash">
-            <arg value="/c"/>
-            <arg value="echo"/>
-            <arg value="hello world"/>
+<!--<project name="learnant" default="echohelloworld" basedir=".">-->
+    <!--<target name="echohelloworld">-->
+        <!--<echo>Hello World!!!</echo>-->
+    <!--</target>-->
+    <!--<target name="cmdhelloworld">-->
+        <!--<exec executable="bash">-->
+            <!--<arg value="/c"/>-->
+            <!--<arg value="echo"/>-->
+            <!--<arg value="hello world"/>-->
 
-        </exec>
+        <!--</exec>-->
+    <!--</target>-->
+<!--</project>-->
+<project name="SampleBuild" default="compile" basedir=".">
+    <path id="compile.classpath">
+        <fileset dir="./SampleWebapp-master/WebContent/WEB-INF/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <mkdir dir="dist"/>
+    </target>
+    <target name="compile" depends="init">
+        <javac srcdir="./SampleWebApp-master/src" debug="true" destdir="build/classes">
+            <classpath refid="compile.classpath"/>
+        </javac>
     </target>
 </project>

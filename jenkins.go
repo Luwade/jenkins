@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/AsynkronIT/goconsole"
+)
 
 func main()  {
-	fmt.Println("Hello")
+	fmt.Println("Hello World")
+	console.ReadLine()
 }
