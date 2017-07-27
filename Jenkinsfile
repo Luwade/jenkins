@@ -15,5 +15,12 @@
          // sh 'go build'
        }
      }
+     stage('Test') {
+        steps {
+            withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
+                sh 'go test'
+            }
+        }
+     }
    }
  }
