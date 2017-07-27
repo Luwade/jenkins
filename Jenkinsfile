@@ -8,7 +8,6 @@
    stages {
      stage('Build') {
        steps {
-         tool(name: 'Go 1.8.3', type: 'go')
          withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
              sh 'printenv'
              sh 'go version'
