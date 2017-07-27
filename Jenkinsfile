@@ -2,7 +2,7 @@
    agent any
 
    environment {
-     GOCONFIG_PATH="/home/vagrant/go"
+     GOCONFIG_PATH="/home/vagrant/go/src/github.com"
    }
 
    stages {
