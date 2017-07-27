@@ -22,7 +22,9 @@
           }
        }
        post {
-          mail to: luwade.pillay@meridianholdings.co.za, subject: 'The Pipeline Failed'
+          failure {
+            mail to : luwade.pillay@meridianholdings.co.za, subject: 'The Pipeline Failed'
+          }
        }
      }
 //     stage('Deploy') {
