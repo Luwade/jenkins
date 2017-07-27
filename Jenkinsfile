@@ -21,15 +21,14 @@
               sh 'go test'
           }
        }
+       post {
+           mail to: luwade.pillay@meridianholdings.co.za, subject: 'The Pipeline Failed'
+       }
      }
      stage('Deploy') {
         steps {
             withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
-            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'admin', usernameVariable: 'Luwade', passwordVariable: 'Luwade582']]) {
-                sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<jenkins> ')
-            }
-
-               // sh 'git push origin master'
+                sh 'git push origin master'
              }
          }
       }
