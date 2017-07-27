@@ -25,7 +25,6 @@
      stage('Deploy') {
         steps {
             withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
-                sh 'git commit -m "Commit"'
                 sh 'git push origin master'
              }
          }
