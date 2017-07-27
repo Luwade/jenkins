@@ -22,15 +22,15 @@
           }
        }
        post {
-           mail to: luwade.pillay@meridianholdings.co.za, subject: 'The Pipeline Failed'
+          mail to: luwade.pillay@meridianholdings.co.za, subject: 'The Pipeline Failed'
        }
      }
-     stage('Deploy') {
-        steps {
-            withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
-                sh 'git push origin master'
-             }
-         }
-      }
+//     stage('Deploy') {
+//        steps {
+//            withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
+//                sh 'git push origin master'
+//             }
+//         }
+//      }
    }
  }
