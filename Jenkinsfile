@@ -25,7 +25,6 @@
      stage('Deploy') {
         steps {
             withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
-                sh 'git remote add origin https://github.com/Luwade/jenkins.git'
                 sh 'git push origin master'
              }
          }
