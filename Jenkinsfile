@@ -21,11 +21,6 @@
               sh 'go test'
           }
        }
-       post {
-          failure {
-            mail to : luwade.pillay@meridianholdings.co.za, subject: 'The Pipeline Failed'
-          }
-       }
      }
 //     stage('Deploy') {
 //        steps {
