@@ -25,7 +25,11 @@
      stage('Deploy') {
         steps {
             withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
-                sh 'git push origin master'
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'admin', usernameVariable: 'Luwade', passwordVariable: 'Luwade582']]) {
+                sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<jenkins> ')
+            }
+
+               // sh 'git push origin master'
              }
          }
       }
