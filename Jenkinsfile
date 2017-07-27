@@ -2,7 +2,7 @@
    agent any
 
    environment {
-     GOCONFIG_PATH="/var/jenkins_home/tools/org.jenkinsci.plugins.golang.GolangInstallation/Go_1.8.3"
+     GOCONFIG_PATH="/home/vagrant/go"
    }
 
    stages {
