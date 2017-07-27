@@ -2,13 +2,13 @@
    agent any
 
    environment {
-     GOCONFIG_PATH="/home/vagrant/go/src/github.com"
+     GOCONFIG_PATH="/home/vagrant/go"
    }
 
    stages {
      stage('Build') {
        steps {
-         withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
+         withEnv(["GOROOT=$GOCONFIG_PATH", "GOPATH=$GOCONFIG_PATH"]) {
              sh 'printenv'
              sh 'go version'
          }
