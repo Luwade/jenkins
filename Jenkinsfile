@@ -10,7 +10,7 @@ pipeline {
                 withEnv(["GOROOT=$GOCONFIG_PATH", "GOPATH=$GOCONFIG_PATH"]) {
                     sh 'printenv'
                     sh 'go version'
-                    sh 'go build'
+                    sh 'go build main.go'
                 }
             }
         }
