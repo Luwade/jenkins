@@ -6,7 +6,7 @@ import (
 
 func TestSum(t *testing.T) {
 	actual := Sum()
-	expected := 3
+	expected := 2
 	if actual != expected {
 		t.Errorf("Test failed")
 	}

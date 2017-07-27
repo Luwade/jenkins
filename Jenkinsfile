@@ -16,11 +16,19 @@
        }
      }
      stage('Test') {
+       steps {
+          withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
+              sh 'go test'
+          }
+       }
+     }
+     stage('Deploy') {
         steps {
             withEnv(["GOROOT=$GOCONFIG_PATH", "PATH+GO=$GOCONFIG_PATH/bin"]) {
-                sh 'go test'
-            }
-        }
-     }
+                sh 'git commit -m "Commit"'
+                sh 'git push origin master'
+             }
+         }
+      }
    }
  }
