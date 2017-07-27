@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/AsynkronIT/goconsole"
+	"github.com/Luwade/jenkins/go/src/github.com/AsynkronIT/goconsole"
 )
 
 func main()  {
