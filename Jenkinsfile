@@ -9,7 +9,7 @@ pipeline {
             steps {
                 withEnv(["GOROOT=$GOCONFIG_PATH", "GOPATH=$GOCONFIG_PATH"]) {
                     sh 'go build main.go'
-                    sh 'Build complete'
+                    sh 'echo Build complete'
                 }
             }
         }
